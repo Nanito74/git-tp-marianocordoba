@@ -1,6 +1,6 @@
 #Realizar un programa que permita
 monto = int(input("Ingrese el monto a abonar: "))
-formadepago = int(input("FORMA DE PAGO \n 1- Para pagar en efectivo \n 2- Para pagar con tarjeta \n"))
+formadepago = int(input("FORMA DE PAGO \n 1- Para pagar en efectivo (-10% si > 1000) \n 2- Para pagar con tarjeta (-5%) \n 3- Fiado (+50%) \n"))
 totalfinal = 0
 if formadepago == 1:
     if monto > 1000:
@@ -11,7 +11,11 @@ if formadepago == 1:
 elif formadepago == 2:
     desc = monto * 0.05
     totalfinal = monto - desc
+elif formadepago == 3: #Nueva funcion! Fiado aumentara 50% mas el monto
+    desc = monto * 0.5
+    totalfinal = monto + desc
 else:
-    print('Tecla incorrecta')
+    print('Opcion incorrecta')
 
-print('El total final es: ', totalfinal)
+if formadepago == 1 or formadepago == 2 or formadepago == 3: #Ahora no mostrara 0 si se ingresa una opcion incorrecta
+    print('El total final es: ', totalfinal)
